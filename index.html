@@ -1,25 +1,29 @@
 ---
-layout: default
+layout: banner
 ---
 
-<div class="home" id="home">
-  <h1 class="pageTitle">Recent Posts</h1>
-  <ul class="posts noList">
-    {% for post in paginator.posts %}
-      <li>
-        <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>
-        <h3><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
-        <p class="description">{% if post.description %}{{ post.description | strip_html | strip_newlines | truncate: 250 }}{% else %}{{ post.content | strip_html | strip_newlines | truncate: 250 }}{% endif %}</p>
-      </li>
-    {% endfor %}
-  </ul>
-  <!-- Pagination links -->
-  <div class="pagination">
-    {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="previous button__outline">Newer Posts</a> 
-    {% endif %}
-    {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="next button__outline">Older Posts</a>
-    {% endif %}
-  </div>
+<div class="features">
+    <div class="container">
+        <h3 class="m_3">Recent Posts</h3>
+        <div class="close_but"><i class="close1"> </i></div>
+
+            {% tablerow post in site.posts cols: 4 limit: 8 %}
+                <div class="col-md-3 top_box" style="height: 300px;">
+                    <div class="view view-ninth">
+                        <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">
+                            <img src="{{ site.url }}{{ site.baseurl }}/resources/post/Categories/{{ post.image }}" class="img-responsive" alt="" onerror="this.onerror = null; this.src = '{{ site.url }}{{ site.baseurl }}/resources/post/Categories/post_blog.jpg';" />
+                            <div class="mask mask-1"> </div>
+                            <div class="mask mask-2"> </div>
+                            <div class="content">
+                                <h2>{{ post.subject }}</h2>
+                                <p class="content" style=" margin-top: 11px; height: 80px; ">{{ post.content | strip_html | truncatewords:40 }}</p>
+                            </div>
+                        </a>
+                    </div>
+                    <h4 class="m_4" style="display: inherit; text-align: -webkit-center;"><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{ post.title | truncatewords:30 }}</a></h4>
+                </div>
+            {% endtablerow %}
+
+    </div>
 </div>
+
