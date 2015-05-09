@@ -4,6 +4,6 @@
 
 ## Quick Start
 
-### Step 1) 
+
 
 ## Credits
