@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "userInterfaceconfig": {
+    "userInterfaceConfig": {
         "siteTemplates": [
             "Main"
         ]
