@@ -7,7 +7,7 @@ baseurl: /GithNote
 description: 
 avatar: 
 disqus: 
-google_analytics: 
+google_analytics: UA-63348203-1
 githnote-categories:
   Blog:
     display-style: post
